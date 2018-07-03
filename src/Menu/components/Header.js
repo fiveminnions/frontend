@@ -7,14 +7,11 @@ export default class Header extends Component {
         return (
             <header className="main-header">
                 <a href="#" className="logo">
-                    <span className="logo-mini"><b>A</b>LT</span>
-                    <span className="logo-lg"><b>Admin</b>LTE</span>
+                    Menu
                 </a>
                 <nav className="navbar navbar-static-top">
-                    <a href="#" className="sidebar-toggle" data-toggle="push-menu" role="button">
-                        <span className="sr-only">Toggle navigation</span>
-                    </a>
-                    <div className="navbar-custom-menu">
+                <span className="col-md-3 col-md-offset-5" style={{color:"white",fontSize:"22px",paddingTop:"8px"}}>Employee Onboarding</span>
+                    <div className="navbar-custom-menu pull-right">
                         <ul className="nav navbar-nav">
                             <li className="dropdown messages-menu">
                                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
@@ -43,6 +40,7 @@ export default class Header extends Component {
                             </li>
                         </ul>
                     </div>
+                    
                 </nav>
             </header>
         )

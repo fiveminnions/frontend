@@ -25,7 +25,7 @@ class App extends React.Component {
         return (
             <div>
                 <div>
-                    <div className="col-sm-12">
+                    <div>
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }

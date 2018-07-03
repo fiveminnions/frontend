@@ -42,6 +42,7 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
         return (
+            <div className="col-md-8" style={{position:"fixed",top:"20%"}}>
             <div className="col-md-6 pull-right" style={{background: "#fff",minHeight: "407px", borderRadius: "10px",boxShadow: "1px 1px 1px 1px #8c8c8c"}}>
             <center><img src={logo} style={{width:"150px",paddingTop:"31px"}}/></center>
                 <center><h3>Login to your account</h3></center>
@@ -66,6 +67,7 @@ class LoginPage extends React.Component {
                         <Link to="/register" className="btn btn-Link col-sm-3 pull-right" style={{marginTop:"5px"}}>Register</Link>
                     </div>
                 </form>
+            </div>
             </div>
         );
     }

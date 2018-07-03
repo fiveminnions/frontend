@@ -48,34 +48,30 @@ class RegisterPage extends React.Component {
         const { registering  } = this.props;
         const { user, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-4" style={{background:"#fff",minHeight:"500px"}}>
+            <div className="col-md-4 col-md-offset-4" style={{background:"#fff",minHeight:"500px",position:"fixed",top:"20%"}}>
                  <center><img src={logo} style={{width:"150px",paddingTop:"31px"}}/></center>
                 <center><h3>Register your account</h3></center>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
-                        <label htmlFor="firstName">First Name</label>
-                        <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} placeholder="First Name"/>
                         {submitted && !user.firstName &&
                             <div className="help-block">First Name is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
-                        <label htmlFor="lastName">Last Name</label>
-                        <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} placeholder="Last Name"/>
                         {submitted && !user.lastName &&
                             <div className="help-block">Last Name is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} placeholder="UserName"/>
                         {submitted && !user.username &&
                             <div className="help-block">Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
+                        <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} placeholder="Password"/>
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
                         }
@@ -85,7 +81,7 @@ class RegisterPage extends React.Component {
                         {registering && 
                             <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                         }
-                        <Link to="/login" className="btn btn-danger col-md-12" style={{marginTop:"5px"}}>Cancel</Link>
+                        <Link to="/login" className="btn btn-Link col-md-12" style={{marginTop:"5px",color:"red"}}>Cancel</Link>
                     </div>
                 </form>
             </div>
