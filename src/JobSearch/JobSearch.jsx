@@ -40,8 +40,8 @@ export default class ExpandRow extends React.Component {
 
 
     return (
-      <div>
-        <div className="col-md-12 row" style={{ height: "50px", border: "1px solid gray",background:"whitesmoke",borderRadius:"8px",marginBottom:"11px" }}>
+      <div style={{marginLeft:"1%"}}>
+        <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc",background:"whitesmoke",borderRadius:"3px",marginBottom:"11px" }}>
           <h4>
             <div className="col-md-3">JobId</div>
             <div className="col-md-3">Designation</div>
