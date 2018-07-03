@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Tabs, Tab } from 'react-bootstrap'
 
 import { userActions } from '../_actions';
-import ExpandRow from '../JobSearch/JobSearch'
 import Menu from '../Menu/container/Menu'
 import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";

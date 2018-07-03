@@ -12,7 +12,6 @@ class Menu extends Component {
       <div>
         <Header />
         <SideBar />
-        <Content />
       </div>
     );
   }

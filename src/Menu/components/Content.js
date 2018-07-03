@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../../assets/css/_all-skins.min.css";
 import "../../assets/css/AdminLTE.css";
 import { Tabs, Tab } from 'react-bootstrap'
-import ExpandRow from '../../JobSearch/JobSearch'
+import ExpandRow from '../../JobsApplied/JobsApplied'
 import { Link } from 'react-router-dom';
 
 export default class Content extends Component {
