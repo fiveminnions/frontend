@@ -1,31 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {Tabs, Tab} from 'react-bootstrap'
+import { Tabs, Tab } from 'react-bootstrap'
 
 import { userActions } from '../_actions';
 import ExpandRow from '../JobSearch/JobSearch'
 import Menu from '../Menu/container/Menu'
+import "../assets/css/_all-skins.min.css";
+import "../assets/css/AdminLTE.css";
 
 class HomePage extends React.Component {
     constructor(props, context) {
         super(props, context);
-    
+
         this.handleSelect = this.handleSelect.bind(this);
         this.check = this.check.bind(this);
-    
+
         this.state = {
-          key: 1
+            key: 1
         };
-      }
-    
-      handleSelect(key) {
+    }
+
+    handleSelect(key) {
         alert(`selected ${key}`);
         this.setState({ key });
-      }
-      check(){
-          console.log("A");
-      }
+    }
+    check() {
+        console.log("A");
+    }
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
     }
@@ -37,9 +39,9 @@ class HomePage extends React.Component {
     render() {
         const { user, users } = this.props;
         return (
-            <div>
+            <div className="hold-transition skin-blue sidebar-mini">
                 <Menu></Menu>
-                </div>
+            </div>
         );
     }
 }
