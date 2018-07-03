@@ -29,12 +29,6 @@ module.exports = {
                 }
             },
             {
-                test: /\.(svg|png|jpg|etc)$/,
-                exclude: [/\.inline\.svg$/],
-                use: ['url-loader']
-            },
-
-            {
                 test: /\.exec\.js$/,
                 use: ['script-loader']
             },
@@ -42,6 +36,13 @@ module.exports = {
                 // Transform our own .css files with PostCSS and CSS-modules
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /react-icons\/(.)*(.js)$/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             }
 
         ]

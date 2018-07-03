@@ -1,6 +1,7 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import MdGrade from 'react-icons/lib/md/grade'
 
 
 export default class ShowTimeline extends React.Component {
@@ -18,7 +19,7 @@ export default class ShowTimeline extends React.Component {
                 className="vertical-timeline-element--work"
                 date="2011 - present"
                 iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                icon='aa'
+                icon={<MdGrade/>}
             >
                 <h3 className="vertical-timeline-element-title">Creative Director</h3>
                 <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
