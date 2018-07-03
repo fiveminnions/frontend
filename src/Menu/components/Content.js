@@ -1,9 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "../../assets/css/_all-skins.min.css";
 import "../../assets/css/AdminLTE.css";
+import { Tabs, Tab } from 'react-bootstrap'
+import ExpandRow from '../../JobSearch/JobSearch'
+import { Link } from 'react-router-dom';
 
 export default class Content extends Component {
-    render(){
+    constructor(props, context) {
+        super(props, context);
+        this.handleSelect = this.handleSelect.bind(this);
+        this.state = {
+            key: 1
+        };
+    }
+
+    handleSelect(key) {
+        alert(`selected ${key}`);
+        this.setState({ key });
+    }
+    render() {
         return (
             <div className="content-wrapper">
                 <section className="content-header">
@@ -16,8 +31,23 @@ export default class Content extends Component {
                                 <div className="box-body">
                                     <div className="row">
                                         <div className="col-md-8">
-                                            <p className="text-center">
-                                                <strong>This is text</strong>
+                                            <Tabs
+                                                activeKey={this.state.key}
+                                                onSelect={this.handleSelect}
+                                                id="controlled-tab-example"
+                                            >
+                                                <Tab eventKey={1} title="Job Search">
+                                                    <ExpandRow />
+                                                </Tab>
+                                                <Tab eventKey={2} title="Jobs Applied">
+                                                    Tab 2 content
+                                                     </Tab>
+                                                <Tab eventKey={3} title="Contact Us" disabled>
+                                                    Tab 3 content
+                                                    </Tab>
+                                            </Tabs>
+                                            <p>
+                                                <Link to="/login">Logout</Link>
                                             </p>
                                         </div>
                                     </div>
@@ -26,11 +56,8 @@ export default class Content extends Component {
                                     <div className="row">
                                         <div className="col-sm-3 col-xs-6">
                                             <div className="description-block border-right">
-                                                <span className="description-percentage text-green"><i className="fa fa-caret-up"></i> 17%</span>
-                                                <h5 className="description-header">$35,210.43</h5>
-                                                <span className="description-text">TOTAL REVENUE</span>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
