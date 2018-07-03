@@ -51,13 +51,13 @@ export default class JobsApplied extends React.Component {
               <div className="col-md-12">
                 <div className="box">
                   <div className="box-header with-border">
-                    <h3 className="box-title">Dashboard</h3>
+                    <h3 className="box-title">Jobs Applied</h3>
                   </div>
                   <div className="box-body">
                     <div className="row">
                       <div className="col-md-12">
                         <div style={{ marginLeft: "1%" }}>
-                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "whitesmoke", borderRadius: "3px", marginBottom: "11px" }}>
+                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "#222d32",color:"white", borderRadius: "3px", marginBottom: "11px" }}>
                             <h4>
                               <div className="col-md-3">JobId</div>
                               <div className="col-md-3">Designation</div>

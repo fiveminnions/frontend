@@ -7,10 +7,10 @@ export default class Header extends Component {
     render(){
         return (
             <header className="main-header">
-                <a href="#" className="logo">
+                <a href="#" className="logo" style={{background:"#222d32"}}>
                 <img src={logo} style={{width:"150px"}}/>
                 </a>
-                <nav className="navbar navbar-static-top">
+                <nav className="navbar navbar-static-top" style={{background:"#222d32"}}>
                 <span className="col-md-3 col-md-offset-5" style={{color:"white",fontSize:"22px",paddingTop:"8px"}}>Employee Onboarding</span>
                     <div className="navbar-custom-menu pull-right">
                         <ul className="nav navbar-nav">
