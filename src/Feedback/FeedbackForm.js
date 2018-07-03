@@ -3,6 +3,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import Menu from '../Menu/container/Menu'
 import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
+import "./Feedback.css";
 
 export default class FeedbackForm extends React.Component {
 
@@ -43,14 +44,44 @@ export default class FeedbackForm extends React.Component {
                             <div className="col-md-12">
                                 <div className="box">
                                     <div className="box-header with-border">
-                                        <h3 className="box-title">Dashboard</h3>
+                                        <h3 className="box-title">Feedback</h3>
                                     </div>
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="container well well-sm">
                                                     <div>
-                                                        <div className=" col-md-5">How would you rate the Process of Interview?</div>
+                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <StarRatingComponent
+                                                            name="rate1"
+                                                            starCount={5}
+                                                            size={100}
+                                                            value={rating}
+                                                            onStarClick={this.onStarClick.bind(this)}
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <StarRatingComponent
+                                                            name="rate1"
+                                                            starCount={5}
+                                                            size={100}
+                                                            value={rating}
+                                                            onStarClick={this.onStarClick.bind(this)}
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <StarRatingComponent
+                                                            name="rate1"
+                                                            starCount={5}
+                                                            size={100}
+                                                            value={rating}
+                                                            onStarClick={this.onStarClick.bind(this)}
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
                                                         <StarRatingComponent
                                                             name="rate1"
                                                             starCount={5}
@@ -60,11 +91,11 @@ export default class FeedbackForm extends React.Component {
                                                         />
                                                     </div>
                                                     <div className="col-md-12 row">
-                                                        <div className=" col-md-5">Provide your valuble comments:</div>
-                                                        <textarea className="col-md-3" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
+                                                        <div className=" col-md-4">Provide your valuble comments:</div>
+                                                        <textarea className="col-md-6" colSpan="5" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
                                                     </div>
-                                                    <div className="col-md-12" style={{ padding: "5px", float: "left" }}>
-                                                        <button className="btn btn-primary col-md-5" onClick={this.handleSubmit.bind(this)}>Save</button>
+                                                    <div className="col-md-12" style={{ padding: "5px"}}>
+                                                        <button className="btn btn-primary" style={{width:"25%",float:"right"}} onClick={this.handleSubmit.bind(this)}>Save</button>
                                                     </div>
                                                 </div>
                                             </div>
