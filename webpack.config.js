@@ -19,7 +19,15 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015', 'stage-3']
                 }
-            }
+            },
+            {
+				test: /\.(gif|jpe?g|png)$/,
+				loader: 'url-loader?limit=25000',
+				query: {
+					limit: 10000,
+					name: 'static/media/images/[name].[hash:8].[ext]'
+				}
+			}
         ]
     },
     plugins: [new HtmlWebpackPlugin({

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
+import logo from '../assets/images/vzlogo.png'
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -41,8 +42,9 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Login</h2>
+            <div className="col-md-6 pull-right" style={{background: "#fff",minHeight: "407px", borderRadius: "10px",boxShadow: "1px 1px 1px 1px #8c8c8c"}}>
+            <center><img src={logo} style={{width:"150px",paddingTop:"31px"}}/></center>
+                <center><h3>Login to your account</h3></center>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
                         <label htmlFor="username">Username</label>
@@ -59,11 +61,11 @@ class LoginPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn btn-primary col-sm-12">Login</button>
                         {loggingIn &&
                             <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                         }
-                        <Link to="/register" className="btn btn-link">Register</Link>
+                        <Link to="/register" className="btn btn-Link col-sm-3 pull-right" style={{marginTop:"5px"}}>Register</Link>
                     </div>
                 </form>
             </div>
