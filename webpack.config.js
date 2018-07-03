@@ -27,7 +27,21 @@ module.exports = {
 					limit: 10000,
 					name: 'static/media/images/[name].[hash:8].[ext]'
 				}
-			}
+            },
+            {
+                test: /\.css$/,
+           use: [ 'style-loader', 'css-loader' ]
+           },
+           {
+            test: /\.(svg|png|jpg|etc)$/,
+            exclude: [/\.inline\.svg$/],
+            use: ['url-loader']
+       },
+       {
+            test: /\.inline\.svg$/,
+            use: ['svg-react-loader']
+       }
+                  
         ]
     },
     plugins: [new HtmlWebpackPlugin({

@@ -1,7 +1,6 @@
 import React from 'react';
 import * as bootstrap from 'react-bootstrap';
-import './dataTable.css'
-import { loadavg } from 'os';
+import ShowTimeline from '../Timeline/ShowTimeline'
 
 const products = [];
 
@@ -42,7 +41,7 @@ export default class ExpandRow extends React.Component {
 
     return (
       <div>
-        <div className="col-md-12 panel" style={{ height: "50px", border: "1px solid gray" }}>
+        <div className="col-md-12 row" style={{ height: "50px", border: "1px solid gray",background:"whitesmoke",borderRadius:"8px",marginBottom:"11px" }}>
           <h4>
             <div className="col-md-3">JobId</div>
             <div className="col-md-3">Designation</div>
@@ -50,7 +49,10 @@ export default class ExpandRow extends React.Component {
             <div className="col-md-3">Location</div>
           </h4>
         </div>
-        <ul>
+        <ul className="row col-md-12" style={{padding:0,listStyle:"none"}}>
+        <bootstrap.PanelGroup
+          accordion id="jobList"
+        >
           {jobsApplied.jobs.map(function (job) {
             return (
               <li key={job.jobID}>
@@ -60,7 +62,7 @@ export default class ExpandRow extends React.Component {
               </li>
             )
           })}
-
+</bootstrap.PanelGroup>
         </ul>
       </div>
     );
@@ -72,35 +74,29 @@ class UXComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeKey: '1'
+      activeKey: ''
     }
     this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleSelect(activeKey) {
-    this.setState({ activeKey });
+    this.setState({ activeKey : this.props.jobID });
   }
   render() {
     return (
       <div>
-        <bootstrap.PanelGroup
-          accordion
-          id="accordion-controlled-example"
-          activeKey={this.state.activeKey}
-          onSelect={this.handleSelect}
-        >
-          <bootstrap.Panel eventKey="1">
-            <bootstrap.Panel.Heading>
+        
+          <bootstrap.Panel eventKey={this.props.job.jobID}>
+            <bootstrap.Panel.Heading style={{minHeight:"50px"}}>
               <bootstrap.Panel.Title toggle>
-                <div className="col-md-3">{this.props.job.jobId}</div>
+                <div className="col-md-3">{this.props.job.jobID}</div>
                 <div className="col-md-3">{this.props.job.Designation}</div>
                 <div className="col-md-3">{this.props.job.SkillSet}</div>
                 <div className="col-md-3">{this.props.job.Location}</div>
                </bootstrap.Panel.Title>
             </bootstrap.Panel.Heading>
-            <bootstrap.Panel.Body collapsible>Panel content 1</bootstrap.Panel.Body>
+            <bootstrap.Panel.Body collapsible><ShowTimeline/></bootstrap.Panel.Body>
           </bootstrap.Panel>
-        </bootstrap.PanelGroup>
       </div>
     )
   }

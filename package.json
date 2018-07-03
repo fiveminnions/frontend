@@ -10,19 +10,24 @@
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
     "history": "^4.6.3",
     "react": "^16.0.0",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.0.0",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "react-tabs": "^2.2.2",
+    "react-vertical-timeline-component": "^2.1.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-	"url-loader": "^1.0.1",
-	"file-loader": "^1.1.11"
+    "style-loader": "^0.21.0",
+    "svg-react-loader": "^0.4.5",
+    "url-loader": "^1.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
