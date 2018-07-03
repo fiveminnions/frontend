@@ -20,6 +20,8 @@
     "react-icons": "^2.2.7",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
+    "react-star-rating": "^1.4.2",
+    "react-star-rating-component": "^1.4.1",
     "react-tabs": "^2.2.2",
     "react-vertical-timeline-component": "^2.1.2",
     "redux": "^3.7.2",
