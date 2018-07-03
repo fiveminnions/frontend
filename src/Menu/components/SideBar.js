@@ -39,6 +39,13 @@ export default class SideBar extends Component {
                                 </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/aboutus">
+                                <i className="fa fa-building-o"></i> <span>About Us</span>
+                                <span className="pull-right-container">
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
             </aside>
