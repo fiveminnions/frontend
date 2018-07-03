@@ -45,30 +45,57 @@ export default class JobsApplied extends React.Component {
     return (
       <div className="hold-transition skin-blue sidebar-mini">
         <Menu></Menu>
-        <div style={{ marginLeft: "1%" }}>
-          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "whitesmoke", borderRadius: "3px", marginBottom: "11px" }}>
-            <h4>
-              <div className="col-md-3">JobId</div>
-              <div className="col-md-3">Designation</div>
-              <div className="col-md-3">Skills</div>
-              <div className="col-md-3">Location</div>
-            </h4>
-          </div>
-          <ul className="row col-md-12" style={{ padding: 0, listStyle: "none" }}>
-            <bootstrap.PanelGroup
-              accordion id="jobList"
-            >
-              {jobsAppliedObj.jobs.map(function (job) {
-                return (
-                  <li key={job.jobID}>
-                    <div>
-                      <UXComp job={job}></UXComp>
+        <div className="content-wrapper">
+          <section className="content-header">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="box">
+                  <div className="box-header with-border">
+                    <h3 className="box-title">Dashboard</h3>
+                  </div>
+                  <div className="box-body">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div style={{ marginLeft: "1%" }}>
+                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "whitesmoke", borderRadius: "3px", marginBottom: "11px" }}>
+                            <h4>
+                              <div className="col-md-3">JobId</div>
+                              <div className="col-md-3">Designation</div>
+                              <div className="col-md-3">Skills</div>
+                              <div className="col-md-3">Location</div>
+                            </h4>
+                          </div>
+                          <ul className="row col-md-12" style={{ padding: 0, listStyle: "none" }}>
+                            <bootstrap.PanelGroup
+                              accordion id="jobList"
+                            >
+                              {jobsAppliedObj.jobs.map(function (job) {
+                                return (
+                                  <li key={job.jobID}>
+                                    <div>
+                                      <UXComp job={job}></UXComp>
+                                    </div>
+                                  </li>
+                                )
+                              })}
+                            </bootstrap.PanelGroup>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </li>
-                )
-              })}
-            </bootstrap.PanelGroup>
-          </ul>
+                  </div>
+                  <div className="box-footer">
+                    <div className="row">
+                      <div className="col-sm-3 col-xs-6">
+                        <div className="description-block border-right">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     );
