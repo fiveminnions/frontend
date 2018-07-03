@@ -11,6 +11,7 @@ import { RegisterPage } from '../RegisterPage';
 import JobsApplied from '../JobsApplied/JobsApplied';
 import FeedbackForm from '../Feedback/FeedbackForm';
 import ContactUs from '../ContactUs/ContactUs';
+import AboutUs from '../AboutUs/AboutUs';
 
 class App extends React.Component {
     constructor(props) {
@@ -40,6 +41,7 @@ class App extends React.Component {
                                 <Route path="/jobsApplied" component={JobsApplied} />
                                 <Route path="/feedback" component={FeedbackForm} />
                                 <Route path="/contactus" component={ContactUs} />
+                                <Route path="/aboutus" component={AboutUs} />
                             </div>
                         </Router>
                     </div>
