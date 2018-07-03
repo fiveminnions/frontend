@@ -21,27 +21,29 @@ module.exports = {
                 }
             },
             {
-				test: /\.(gif|jpe?g|png)$/,
-				loader: 'url-loader?limit=25000',
-				query: {
-					limit: 10000,
-					name: 'static/media/images/[name].[hash:8].[ext]'
-				}
+                test: /\.(gif|jpe?g|png)$/,
+                loader: 'url-loader?limit=25000',
+                query: {
+                    limit: 10000,
+                    name: 'static/media/images/[name].[hash:8].[ext]'
+                }
             },
             {
+                test: /\.(svg|png|jpg|etc)$/,
+                exclude: [/\.inline\.svg$/],
+                use: ['url-loader']
+            },
+
+            {
+                test: /\.exec\.js$/,
+                use: ['script-loader']
+            },
+            {
+                // Transform our own .css files with PostCSS and CSS-modules
                 test: /\.css$/,
-           use: [ 'style-loader', 'css-loader' ]
-           },
-           {
-            test: /\.(svg|png|jpg|etc)$/,
-            exclude: [/\.inline\.svg$/],
-            use: ['url-loader']
-       },
-       {
-            test: /\.inline\.svg$/,
-            use: ['svg-react-loader']
-       }
-                  
+                use: ['style-loader', 'css-loader'],
+            }
+
         ]
     },
     plugins: [new HtmlWebpackPlugin({

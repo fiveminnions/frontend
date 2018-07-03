@@ -5,6 +5,7 @@ import {Tabs, Tab} from 'react-bootstrap'
 
 import { userActions } from '../_actions';
 import ExpandRow from '../JobSearch/JobSearch'
+import Menu from '../Menu/container/Menu'
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -37,25 +38,8 @@ class HomePage extends React.Component {
         const { user, users } = this.props;
         return (
             <div>
-                <Tabs
-                    activeKey={this.state.key}
-                    onSelect={this.handleSelect}
-                    id="controlled-tab-example"
-                >
-                    <Tab eventKey={1} title="Job Search">
-                        <ExpandRow/>
-                </Tab>
-                    <Tab eventKey={2} title="Jobs Applied">
-                        Tab 2 content
-        </Tab>
-                    <Tab eventKey={3} title="Contact Us" disabled>
-                        Tab 3 content
-        </Tab>
-                </Tabs>
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
-            </div>
+                <Menu></Menu>
+                </div>
         );
     }
 }
