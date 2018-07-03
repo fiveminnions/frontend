@@ -1,0 +1,6 @@
+.vertical-timeline-element-content{
+    background: #d6f5d7;
+}
+.vertical-timeline::before{
+    background: #000;
+}

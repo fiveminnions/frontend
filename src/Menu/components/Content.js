@@ -46,9 +46,6 @@ export default class Content extends Component {
                                                     Tab 3 content
                                                     </Tab>
                                             </Tabs>
-                                            <p>
-                                                <Link to="/login">Logout</Link>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
