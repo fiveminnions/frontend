@@ -5,7 +5,6 @@ import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
 import "./Feedback.css";
 import { connect } from 'react-redux';
-import { feedBackActions } from '../_actions';
 import { submitFeedBack } from '../_actions/feedback.actions';
 
 class FeedbackForm extends React.Component {

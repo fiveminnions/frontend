@@ -1,7 +1,7 @@
-import { feedBackConstants } from '../_constants';
+import { contactUsConstants } from '../_constants';
 import axios from 'axios';
 
-export const feedBackActions = {
+export const contactUsActions = {
     success,
     error
 };
@@ -11,21 +11,21 @@ const responseFailure = {
     Message: "Please Contact Administrator."
 }
 function success(data) {
-    return { type: feedBackConstants.FEEDBACK_SUCCESS, data };
+    return { type: contactUsConstants.CONTACT_US_SUCCESS, data };
 }
 
 function error(error) {
-    return { type: feedBackConstants.FEEDBACK_FAILURE, error };
+    return { type: contactUsConstants.CONTACT_US_FAILURE, error };
 }
 
-export function submitFeedBack(feedBackObj) {
+export function sendEmail(contactUs) {
     return (dispatch, getState) => {
         axios.get('https://jsonplaceholder.typicode.com/posts/1')
             .then(function (response) {
-                dispatch(feedBackActions.success(response));
+                dispatch(contactUsActions.success(response));
             })
             .catch(function (error) {
-                dispatch(feedBackActions.success(responseFailure));
+                dispatch(contactUsActions.error(responseFailure));
             });
     }
 }

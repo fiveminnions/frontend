@@ -4,6 +4,8 @@ import ShowTimeline from '../Timeline/ShowTimeline'
 import Menu from '../Menu/container/Menu'
 import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
+import { upLoadDocument, fetchJobsApplied } from '../_actions/jobsapplied.actions';
+import { connect } from 'react-redux';
 
 const products = [];
 
@@ -22,16 +24,30 @@ const jobsAppliedObj = {
   }]
 }
 
-export default class JobsApplied extends React.Component {
+class JobsApplied extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       open: true
-
     };
   }
 
+  componentDidMount() {
+    const userObj = { name: "Test" }
+    this.props.fetchJobsApplied(userObj);
+  }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+  }
+
+  handleDocUpload() {
+    const data = {
+      doc: ""
+    }
+    console.log("Data submitted", data)
+    this.props.upLoadDocument(data);
+  }
 
   render() {
     console.log("Applied jobs", jobsAppliedObj)
@@ -57,7 +73,7 @@ export default class JobsApplied extends React.Component {
                     <div className="row">
                       <div className="col-md-12">
                         <div style={{ marginLeft: "1%" }}>
-                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "#222d32",color:"white", borderRadius: "3px", marginBottom: "11px" }}>
+                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "#222d32", color: "white", borderRadius: "3px", marginBottom: "11px" }}>
                             <h4>
                               <div className="col-md-3">JobId</div>
                               <div className="col-md-3">Designation</div>
@@ -134,3 +150,13 @@ class UXComp extends React.Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  const { docUpload, jobs } = state.jobsAppliedReducer;
+  return {
+    docUpload,
+    jobs
+  };
+}
+
+export default connect(mapStateToProps, { upLoadDocument, fetchJobsApplied })(JobsApplied);

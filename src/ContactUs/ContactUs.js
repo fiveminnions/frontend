@@ -2,8 +2,10 @@ import React from 'react';
 import Menu from '../Menu/container/Menu'
 import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
+import { sendEmail } from '../_actions/contactus.actions';
+import { connect } from 'react-redux';
 
-export default class ContactUs extends React.Component {
+class ContactUs extends React.Component {
 
     constructor(props) {
         super(props)
@@ -12,8 +14,12 @@ export default class ContactUs extends React.Component {
             toId: '',
             subject: "",
             cc: "",
-            body:''
+            body: ''
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
     }
 
     onHandleToChange(e) {
@@ -39,6 +45,7 @@ export default class ContactUs extends React.Component {
             comment: this.state.comment
         }
         console.log("Data submitted", data)
+        this.props.sendEmail(data);
     }
     render() {
         const { rating } = this.state;
@@ -108,3 +115,12 @@ export default class ContactUs extends React.Component {
     }
 
 }
+
+function mapStateToProps(state) {
+    const { contactUs } = state.contactUsReducer;
+    return {
+        contactUs
+    };
+}
+
+export default connect(mapStateToProps, { sendEmail })(ContactUs);
