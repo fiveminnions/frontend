@@ -4,3 +4,12 @@
 .vertical-timeline::before{
     background: #000;
 }
+
+
+.vertical-timeline-element-content .vertical-timeline-element-date{
+    left:164%;
+}
+
+.vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date, .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date{
+    right:164%;
+}
