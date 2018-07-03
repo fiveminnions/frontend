@@ -4,12 +4,14 @@ import { authentication } from './authentication.reducer';
 import { registration } from './registration.reducer';
 import { users } from './users.reducer';
 import { alert } from './alert.reducer';
+import { feedbackReducer } from './feedback.reducer.js';
 
 const rootReducer = combineReducers({
   authentication,
   registration,
   users,
-  alert
+  alert,
+  feedbackReducer
 });
 
 export default rootReducer;

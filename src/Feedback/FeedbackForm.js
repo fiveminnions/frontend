@@ -4,8 +4,11 @@ import Menu from '../Menu/container/Menu'
 import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
 import "./Feedback.css";
+import { connect } from 'react-redux';
+import { feedBackActions } from '../_actions';
+import { submitFeedBack } from '../_actions/feedback.actions';
 
-export default class FeedbackForm extends React.Component {
+class FeedbackForm extends React.Component {
 
     constructor(props) {
         super(props)
@@ -15,6 +18,9 @@ export default class FeedbackForm extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+    }
     onStarClick(nextValue, prevValue, name) {
         this.setState({ rating: nextValue });
     }
@@ -24,20 +30,18 @@ export default class FeedbackForm extends React.Component {
     }
 
     handleSubmit() {
-
         const data = {
             rating: this.state.rating,
             comment: this.state.comment
         }
-        console.log("Data submitted", data)
+        this.props.submitFeedBack(data);
+
     }
     render() {
         const { rating } = this.state;
-
         return (
             <div className="hold-transition skin-blue sidebar-mini">
                 <Menu></Menu>
-
                 <div className="content-wrapper">
                     <section className="content-header">
                         <div className="row">
@@ -94,8 +98,8 @@ export default class FeedbackForm extends React.Component {
                                                         <div className=" col-md-4">Provide your valuble comments:</div>
                                                         <textarea className="col-md-6" colSpan="5" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
                                                     </div>
-                                                    <div className="col-md-12" style={{ padding: "5px"}}>
-                                                        <button className="btn btn-primary" style={{width:"25%",float:"right"}} onClick={this.handleSubmit.bind(this)}>Save</button>
+                                                    <div className="col-md-12" style={{ padding: "5px" }}>
+                                                        <button className="btn btn-primary" style={{ width: "25%", float: "right" }} onClick={this.handleSubmit.bind(this)}>Save</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,11 +118,17 @@ export default class FeedbackForm extends React.Component {
                         </div>
                     </section>
                 </div>
-
-
-
             </div>
         );
     }
-
 }
+
+
+function mapStateToProps(state) {
+    const { feedBackData } = state.feedbackReducer;
+    return {
+        feedBackData
+    };
+}
+
+export default connect(mapStateToProps, { submitFeedBack })(FeedbackForm);
