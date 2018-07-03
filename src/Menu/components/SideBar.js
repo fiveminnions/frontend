@@ -33,6 +33,13 @@ export default class SideBar extends Component {
                                 </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/contactus">
+                                <i className="fa fa-envelope"></i> <span>Contact Us</span>
+                                <span className="pull-right-container">
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
             </aside>

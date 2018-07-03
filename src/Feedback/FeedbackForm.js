@@ -1,5 +1,8 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import Menu from '../Menu/container/Menu'
+import "../assets/css/_all-skins.min.css";
+import "../assets/css/AdminLTE.css";
 
 export default class FeedbackForm extends React.Component {
 
@@ -10,7 +13,6 @@ export default class FeedbackForm extends React.Component {
             comment: ''
         };
     }
-
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({ rating: nextValue });
@@ -32,27 +34,59 @@ export default class FeedbackForm extends React.Component {
         const { rating } = this.state;
 
         return (
+            <div className="hold-transition skin-blue sidebar-mini">
+                <Menu></Menu>
 
-            <div  className="container well well-sm">
-                <div>
-                    <div className=" col-md-5">How would you rate the Process of Interview?</div>
-                    <StarRatingComponent
-                        name="rate1"
-                        starCount={5}
-                        size={100}
-                        value={rating}
-                        onStarClick={this.onStarClick.bind(this)}
-                    />
+                <div className="content-wrapper">
+                    <section className="content-header">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="box">
+                                    <div className="box-header with-border">
+                                        <h3 className="box-title">Dashboard</h3>
+                                    </div>
+                                    <div className="box-body">
+                                        <div className="row">
+                                            <div className="col-md-12">
+                                                <div className="container well well-sm">
+                                                    <div>
+                                                        <div className=" col-md-5">How would you rate the Process of Interview?</div>
+                                                        <StarRatingComponent
+                                                            name="rate1"
+                                                            starCount={5}
+                                                            size={100}
+                                                            value={rating}
+                                                            onStarClick={this.onStarClick.bind(this)}
+                                                        />
+                                                    </div>
+                                                    <div className="col-md-12 row">
+                                                        <div className=" col-md-5">Provide your valuble comments:</div>
+                                                        <textarea className="col-md-3" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
+                                                    </div>
+                                                    <div className="col-md-12" style={{ padding: "5px", float: "left" }}>
+                                                        <button className="btn btn-primary col-md-5" onClick={this.handleSubmit.bind(this)}>Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="box-footer">
+                                        <div className="row">
+                                            <div className="col-sm-3 col-xs-6">
+                                                <div className="description-block border-right">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div className="col-md-12 row">
-                <div className=" col-md-5">Provide your valuble comments:</div>
-                    <textarea className="col-md-3" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
-                </div>
-                <div className="col-md-12" style={{padding:"5px",float:"left"}}>
-                    <button className="btn btn-primary col-md-5" onClick={this.handleSubmit.bind(this)}>Save</button>
-                </div>
+
+
+
             </div>
-
         );
     }
 
