@@ -79,7 +79,7 @@ class JobsApplied extends React.Component {
                             <bootstrap.PanelGroup
                               accordion id="jobList"
                             >
-                              {this.props.jobs && this.props.jobs.data.details.jobInfo.map(function (job) {
+                              {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
                                 return (
                                   <li key={job.jobId}>
                                     <div>
@@ -89,6 +89,9 @@ class JobsApplied extends React.Component {
                                 )
                               })}
                             </bootstrap.PanelGroup>
+                            {this.props.jobs && !this.props.jobs.data.details ? <div>No Jobs Applied </div> : '' }
+                                            
+                              
                           </ul>
                         </div>
                       </div>
