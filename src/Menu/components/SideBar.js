@@ -17,17 +17,16 @@ export default class SideBar extends Component {
                         </div>
                     </div>
                     <ul className="sidebar-menu" data-widget="tree">
-                        <li className="header">MAIN NAVIGATION</li>
                         <li>
                             <a href="/jobsApplied">
-                                <i className="fa fa-calendar"></i> <span>Jobs Applied</span>
+                                <i className="fa fa-user-plus"></i> <span>Jobs Applied</span>
                                 <span className="pull-right-container">
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="/feedback">
-                                <i className="fa fa-envelope"></i> <span>Feedback</span>
+                                <i className="fa fa-edit"></i> <span>Feedback</span>
                                 <span className="pull-right-container">
                                 </span>
                             </a>

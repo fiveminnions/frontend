@@ -13,7 +13,6 @@ class ContactUs extends React.Component {
             fromId: "",
             toId: '',
             subject: "",
-            cc: "",
             body: ''
         };
     }
@@ -43,7 +42,6 @@ class ContactUs extends React.Component {
         const data = {
             toId: this.state.toId,
             subject: this.state.subject,
-            cc:this.state.cc,
             body:this.state.body
         }
         console.log("Data submitted", data)
@@ -66,31 +64,34 @@ class ContactUs extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
-                                                <div className="container well well-sm">
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">To</div>
+                                                <div className="container well well-sm"style={{ padding: "5px", fontSize:"16px",lineHeight:"2em"}}>
+                                                    <div className="col-md-12 row"style={{ padding: "5px"}}>
+                                                        <div className=" col-md-3" style={{textAlign:"right"}}>To:</div>
                                                         <div className=" col-md-6">
-                                                            <input type="text" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}></input>
+                                                        <select className="form-control" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}>
+                                                            <option>support@excelon.com</option>
+                                                            <option>bbb@gmail.com</option>
+                                                            <option>ccc@gmail.com</option>
+                                                            <option>ddd@gmail.com</option>
+                                                            <option>eee@gmail.com</option>
+                                                            <option>fff@gmail.com</option>
+                                                        </select>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">CC</div>
+                                                    
+                                                    <div className="col-md-12 row"style={{ padding: "5px"}}>
+                                                        <div className=" col-md-3" style={{textAlign:"right"}}>Subjec:t</div>
                                                         <div className=" col-md-6">
-                                                            <input type="text" value={this.state.cc} onChange={this.onHandleCCChange.bind(this)}></input>
+                                                            <input type="text" className="form-control" value={this.state.subject} onChange={this.onHandleSubjectChange.bind(this)}></input>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">Subject</div>
-                                                        <div className=" col-md-6">
-                                                            <input type="text" value={this.state.subject} onChange={this.onHandleSubjectChange.bind(this)}></input>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-5">Provide your valuble comments:</div>
-                                                        <textarea className="col-md-3" placeholder="Enter your comments" value={this.state.body} onChange={this.onHandleBodyChange.bind(this)}></textarea>
+                                                    <div className="col-md-12 row" style={{ padding: "5px"}}>
+                                                        <div className=" col-md-3" style={{textAlign:"right"}}>Mail Content:</div>
+                                                        <div className="col-md-6"><textarea className="form-control" placeholder="Mail Content goes here" value={this.state.body} onChange={this.onHandleBodyChange.bind(this)}></textarea></div>
+                                                        
                                                     </div>
                                                     <div className="col-md-12" style={{ padding: "5px", float: "left" }}>
-                                                        <button className="btn btn-primary col-md-5" onClick={this.handleSubmit.bind(this)}>Send</button>
+                                                        <button className="btn btn-primary col-md-2 pull-right" onClick={this.handleSubmit.bind(this)}>Send</button>
                                                     </div>
                                                 </div>
                                             </div>
