@@ -32,32 +32,27 @@ export default class AboutUs extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
-                                                <div className="container well well-sm">
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">To</div>
-                                                        <div className=" col-md-6">
-                                                            <input type="text" value={this.state.toId} ></input>
-                                                        </div>
+                                                <div className="col-md-4" style={{border: "1px solid #e8dbdb",borderRadius: "5px",boxShadow: "3px 2px 3px 1px"}}>
+                                                    
+                                                        <h3>Who we are:</h3>
+                                                        <p> <b>Our mission:</b> Excello delivers the promise of the digital world by enhancing the ability of humans, businesses and society to do more new and do more good.
+                                                        We stand for integrity, respect, performance excellence and accountability. This reaches beyond products and services, connecting our customers to a larger truth about what we do and why it matters. The Excello credo is a set of principles that describes our culture and our core values.
+                                                    </p>
                                                     </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">CC</div>
-                                                        <div className=" col-md-6">
-                                                            <input type="text" value={this.state.cc} ></input>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-6">Subject</div>
-                                                        <div className=" col-md-6">
-                                                            <input type="text" value={this.state.subject} ></input>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-12 row">
-                                                        <div className=" col-md-5">Provide your valuble comments:</div>
-                                                        <textarea className="col-md-3" placeholder="Enter your comments" value={this.state.body}></textarea>
-                                                    </div>
-                                                    <div className="col-md-12" style={{ padding: "5px", float: "left" }}>
-                                                        <button className="btn btn-primary col-md-5">Send</button>
-                                                    </div>
+                                                    <div className="col-md-4" style={{border: "1px solid #e8dbdb",borderRadius: "5px",boxShadow: "3px 2px 3px 1px"}}>
+                                                    <h3>Code of Conduct:</h3>
+                                                    <p>We publish our Code of Conduct for employees, but this document also lets our customers know that integrity and respect underscore how we do business.
+ 
+ We honor the core values written in our credo.
+  
+ We stand for integrity, respect, performance excellence and accountability. This reaches beyond products and services, connecting our customers to a larger truth about what we do and why it matters.
+                                                         </p>
+                                                         </div>
+                                                         <div className="col-md-4" style={{border: "1px solid #e8dbdb",borderRadius: "5px",boxShadow: "3px 2px 3px 1px"}}>
+                                                    <h3>What we do: </h3>
+                                                    <p>We’ve got big plans to bring connected solutions to everything — from industrial and consumer products, to vehicles and buildings — so everything works more safely, productively and economically.
+We're not just focused on providing connections, we've also created the Excello Open Development program designed to allow and encourage the development community to create new products, applications and services.
+ </p>
                                                 </div>
                                             </div>
                                         </div>

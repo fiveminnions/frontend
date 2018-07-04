@@ -71,7 +71,7 @@ class FeedbackForm extends React.Component {
                                             <div className="col-md-12">
                                                 <div className="container well well-sm" style={{ fontSize: "18px", lineHeight: "2em" }}>
                                                     <div>
-                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <div className=" col-md-6">How would you rate the Overall Process of Interview?</div>
                                                         <StarRatingComponent
                                                             name="rate1"
                                                             starCount={5}
@@ -81,7 +81,7 @@ class FeedbackForm extends React.Component {
                                                         />
                                                     </div>
                                                     <div>
-                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <div className=" col-md-6">How well was the job description explained to you ?</div>
                                                         <StarRatingComponent
                                                             name="rate2"
                                                             starCount={5}
@@ -91,7 +91,7 @@ class FeedbackForm extends React.Component {
                                                         />
                                                     </div>
                                                     <div>
-                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <div className=" col-md-6">How was the communication throught the entire process?</div>
                                                         <StarRatingComponent
                                                             name="rate3"
                                                             starCount={5}
@@ -101,7 +101,7 @@ class FeedbackForm extends React.Component {
                                                         />
                                                     </div>
                                                     <div>
-                                                        <div className=" col-md-4">How would you rate the Process of Interview?</div>
+                                                        <div className=" col-md-6">How was your in-person interview process ?</div>
                                                         <StarRatingComponent
                                                             name="rate4"
                                                             starCount={5}
@@ -111,7 +111,7 @@ class FeedbackForm extends React.Component {
                                                         />
                                                     </div>
                                                     <div className="col-md-12 row">
-                                                        <div className=" col-md-4">Provide your valuble comments:</div>
+                                                        <div className=" col-md-6">Provide your valuble comments:</div>
                                                         <textarea className="col-md-6" colSpan="5" placeholder="Enter your comments" value={this.state.comment} onChange={this.onHandleChange.bind(this)}></textarea>
                                                     </div>
                                                     <center style={{ padding: "5px" }}>
