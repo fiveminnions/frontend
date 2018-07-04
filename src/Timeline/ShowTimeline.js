@@ -44,17 +44,20 @@ export default class ShowTimeline extends React.Component {
         return (
             <VerticalTimeline>
                 {this.props.details.map(detail => {
-                    if (detail.roundType === 'Joining Date') {
+                    if (detail.roundType === 'Joining Date' || detail.status ==="inprogress") {
                         return (
 
                             <VerticalTimelineElement
                                 iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-                                icon={stepConfig[detail.roundType].icon}
-                            />
+                                icon={stepConfig[detail.roundType].icon}>
+                                <h3 className="vertical-timeline-element-title">{detail.roundType}</h3>
+                            <h4 className="vertical-timeline-element-subtitle">{detail.result}</h4>
+                            </VerticalTimelineElement>
                         )
                     } else {
                         return (<VerticalTimelineElement
-                            className="vertical-timeline-element--work"
+                            className="vertical-timeline-element--work completed"
+                            style={{fontsize:'2rem'}}
                             date={detail.date}
                             iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                             icon={stepConfig[detail.roundType] ? stepConfig[detail.roundType].icon : <MdGrade />} >

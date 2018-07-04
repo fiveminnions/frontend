@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import "../../assets/css/_all-skins.min.css";
 import "../../assets/css/AdminLTE.css";
-
+import MdAccountCircle from 'react-icons/lib/md/account-circle'
 export default class SideBar extends Component {
+
+
     render() {
+
+        let user = JSON.parse(localStorage.getItem('user'));
         return (
             <aside className="main-sidebar" style={{ minHeight: "974px" }}>
                 <section className="sidebar">
                     <div className="user-panel">
                         <div className="pull-left image">
-                            <img src="images/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                           <MdAccountCircle style={{background:'#fff'}}/>
                         </div>
                         <div className="pull-left info">
-                            <p>Maria</p>
+                            <p>{user.username}</p>
                             <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>

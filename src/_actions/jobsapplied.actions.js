@@ -42,6 +42,8 @@ export function upLoadDocument(uploadObj) {
 }
 
 export function fetchJobsApplied(userObj) {
+    console.log("userObjuserObjuserObjuserObj", userObj.email)
+    var email =userObj.email;
     return (dispatch, getState) => {
 
         axios({
@@ -50,7 +52,7 @@ export function fetchJobsApplied(userObj) {
             data: {
               query: `
               query getDetails{
-                details(email: "raj@gmail.com") {
+                details(email:"`+ userObj.email+`") {
                   user_name
                   email
                   password

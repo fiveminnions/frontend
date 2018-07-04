@@ -3,8 +3,10 @@ import "../../assets/css/_all-skins.min.css";
 import "../../assets/css/AdminLTE.css";
 import logo from '../../assets/images/vzlogo.png';
 import { Link } from 'react-router-dom';
+import MdExitToApp from 'react-icons/lib/md/exit-to-app'
 export default class Header extends Component {
     render(){
+        let user = JSON.parse(localStorage.getItem('user'));
         return (
             <header className="main-header">
                 <a href="#" className="logo" style={{background:"#222d32"}}>
@@ -20,13 +22,13 @@ export default class Header extends Component {
                                     <span className="label label-success">4</span>
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li className="header">Maria</li>
+                                    <li className="header">{user.username}</li>
                                     <li>
                                         <ul className="menu">
                                             <li>
                                                 <a href="#">
                                                     <div className="pull-left">
-                                                        <img src="images/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                                                        <MdExitToApp />
                                                     </div>
                                                     <p>
                                                 <Link to="/login">Logout</Link>

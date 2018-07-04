@@ -26,7 +26,8 @@ export function configureFakeBackend() {
                             username: user.username,
                             firstName: user.firstName,
                             lastName: user.lastName,
-                            token: 'fake-jwt-token'
+                            token: 'fake-jwt-token',
+                            email:user.email
                         };
                         resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(responseJson)) });
                     } else {
