@@ -10,7 +10,7 @@ export const jobsAppliedActions = {
 
 const responseFailure = {
     type: "Error",
-    Message: "Please Contact Administrator."
+    Message: "Please Contact HR at HR@excelon.com."
 }
 
 function docUploadSuccess(data) {
