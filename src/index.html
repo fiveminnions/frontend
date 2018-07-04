@@ -18,7 +18,35 @@
 </head>
 <body>
     <div id="app" style="background: #ecf0f5; min-height: 974px;"></div>
-
-   
+    <div id="d1"  style="visibility:visible; position:fixed; bottom: 0;right: 0;width:350px;height:430px"><span>
+        <i class="fa fa-compress" onClick="max()" style="color:white;font-size:25px;position: absolute;top:25px;right:20px;z-index:301"></i></span>
+    <iframe
+    id="i1"
+    width="350"
+    height="430"
+    style="z-index: 300; position:fixed; bottom: 0;right: 0"
+    src="https://console.dialogflow.com/api-client/demo/embedded/46d73af7-21bf-4af4-bd2e-7d34fb5cb716">
+</iframe>
+</div>
+<script type="text/javascript">
+ 
+ max()
+     
+    function max()
+    {
+        debugger;
+    if(document.getElementById("d1").style.bottom=="0px"){
+        document.getElementById("d1").style.bottom="-350px";
+        document.getElementById("i1").style.bottom="-350px";
+    }
+    else{
+        document.getElementById("d1").style.bottom="0px"
+        document.getElementById("i1").style.bottom="0px"
+        document.getElementById("i1").focus();
+    }
+       
+       
+    }	
+    </script>
 </body>
 </html>
