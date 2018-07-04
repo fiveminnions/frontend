@@ -4,6 +4,7 @@ import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
 import { sendEmail } from '../_actions/contactus.actions';
 import { connect } from 'react-redux';
+import { upLoadDocument, fetchJobsApplied } from '../_actions/jobsapplied.actions';
 
 class ContactUs extends React.Component {
 
@@ -16,6 +17,12 @@ class ContactUs extends React.Component {
             body: ''
         };
     }
+	
+	componentDidMount(){
+        let user = JSON.parse(localStorage.getItem('user'));
+        this.props.fetchJobsApplied(user);
+
+     }
 
     componentWillReceiveProps(nextProps) {
         console.log(nextProps)
@@ -49,7 +56,7 @@ class ContactUs extends React.Component {
     }
     render() {
         const { rating } = this.state;
-
+        console.log("jobsssass", this.props.jobs)
         return (
             <div className="hold-transition skin-blue sidebar-mini">
                 <Menu></Menu>
@@ -75,12 +82,18 @@ class ContactUs extends React.Component {
                                                         <div className=" col-md-3" style={{ textAlign: "right" }}>To:</div>
                                                         <div className=" col-md-6">
                                                             <select className="form-control" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}>
-                                                                <option>support@excelon.com</option>
-                                                                <option>bbb@gmail.com</option>
-                                                                <option>ccc@gmail.com</option>
-                                                                <option>ddd@gmail.com</option>
-                                                                <option>eee@gmail.com</option>
-                                                                <option>fff@gmail.com</option>
+                                                            
+                                                        {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
+                                                    
+                                                          return (   
+                                                            
+                                                                <option>{job.hiringManager}</option>
+                                                                 
+                                                          )
+                                                            
+                                                            
+                                                          })}
+                                                                
                                                             </select>
                                                         </div>
                                                     </div>
@@ -127,10 +140,12 @@ class ContactUs extends React.Component {
 
 function mapStateToProps(state) {
     const { contactUs, contactUsError } = state.contactUsReducer;
+	const { docUpload, jobs, jobsError, docUploadError } = state.jobsAppliedReducer
     return {
         contactUs,
-        contactUsError
+        contactUsError,
+		jobs
     };
 }
 
-export default connect(mapStateToProps, { sendEmail })(ContactUs);
+export default connect(mapStateToProps, { sendEmail, fetchJobsApplied })(ContactUs);

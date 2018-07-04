@@ -51,7 +51,7 @@ class FeedbackForm extends React.Component {
         }
         console.log(data);
         this.props.submitFeedBack(data);
-
+         this.setState({SuccessMessage : 'FeedBack submitted successfully'}, () => window.setTimeout(() => this.setState({SuccessMessage : null}),5000))
     }
     render() {
         const { rating } = this.state;
@@ -69,6 +69,7 @@ class FeedbackForm extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
+											  {this.state.SuccessMessage && <div className='alert alert-success' style={{width:'100%'}}>{this.state.SuccessMessage}</div>}
                                                 <div className="container well well-sm" style={{ fontSize: "18px", lineHeight: "2em" }}>
                                                     <div>
                                                         <div className=" col-md-6">How would you rate the Overall Process of Interview?</div>
