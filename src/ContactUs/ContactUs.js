@@ -86,7 +86,7 @@ class ContactUs extends React.Component {
                                                     </div>
 
                                                     <div className="col-md-12 row" style={{ padding: "5px" }}>
-                                                        <div className=" col-md-3" style={{ textAlign: "right" }}>Subjec:t</div>
+                                                        <div className=" col-md-3" style={{ textAlign: "right" }}>Subject:</div>
                                                         <div className=" col-md-6">
                                                             <input type="text" className="form-control" value={this.state.subject} onChange={this.onHandleSubjectChange.bind(this)}></input>
                                                         </div>
