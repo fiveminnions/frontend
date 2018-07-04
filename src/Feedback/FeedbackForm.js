@@ -51,10 +51,18 @@ class FeedbackForm extends React.Component {
         }
         console.log(data);
         this.props.submitFeedBack(data);
-         this.setState({SuccessMessage : 'FeedBack submitted successfully'}, () => window.setTimeout(() => this.setState({SuccessMessage : null}),5000))
+        this.setState({ SuccessMessage: 'FeedBack submitted successfully' }, () => window.setTimeout(() => this.setState({ SuccessMessage: null }), 5000))
+        this.setState({
+            rating1: 1,
+            rating2: 1,
+            rating3: 1,
+            rating4: 1,
+            comment: '',
+            name: ''
+        })
     }
     render() {
-        const { rating } = this.state;
+        const { rating1, rating2, rating3, rating4 } = this.state;
         return (
             <div className="hold-transition skin-blue sidebar-mini">
                 <Menu></Menu>
@@ -69,7 +77,7 @@ class FeedbackForm extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
-											  {this.state.SuccessMessage && <div className='alert alert-success' style={{width:'100%'}}>{this.state.SuccessMessage}</div>}
+                                                {this.state.SuccessMessage && <div className='alert alert-success' style={{ width: '100%' }}>{this.state.SuccessMessage}</div>}
                                                 <div className="container well well-sm" style={{ fontSize: "18px", lineHeight: "2em" }}>
                                                     <div>
                                                         <div className=" col-md-6">How would you rate the Overall Process of Interview?</div>
@@ -77,7 +85,7 @@ class FeedbackForm extends React.Component {
                                                             name="rate1"
                                                             starCount={5}
                                                             size={100}
-                                                            value={rating}
+                                                            value={rating1}
                                                             onStarClick={this.onStarClick1.bind(this)}
                                                         />
                                                     </div>
@@ -87,7 +95,7 @@ class FeedbackForm extends React.Component {
                                                             name="rate2"
                                                             starCount={5}
                                                             size={100}
-                                                            value={rating}
+                                                            value={rating2}
                                                             onStarClick={this.onStarClick2.bind(this)}
                                                         />
                                                     </div>
@@ -97,7 +105,7 @@ class FeedbackForm extends React.Component {
                                                             name="rate3"
                                                             starCount={5}
                                                             size={100}
-                                                            value={rating}
+                                                            value={rating3}
                                                             onStarClick={this.onStarClick3.bind(this)}
                                                         />
                                                     </div>
@@ -107,7 +115,7 @@ class FeedbackForm extends React.Component {
                                                             name="rate4"
                                                             starCount={5}
                                                             size={100}
-                                                            value={rating}
+                                                            value={rating4}
                                                             onStarClick={this.onStarClick4.bind(this)}
                                                         />
                                                     </div>

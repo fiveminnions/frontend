@@ -17,12 +17,12 @@ class ContactUs extends React.Component {
             body: ''
         };
     }
-	
-	componentDidMount(){
+
+    componentDidMount() {
         let user = JSON.parse(localStorage.getItem('user'));
         this.props.fetchJobsApplied(user);
 
-     }
+    }
 
     componentWillReceiveProps(nextProps) {
         console.log(nextProps)
@@ -53,6 +53,7 @@ class ContactUs extends React.Component {
         }
         console.log("Data submitted", data)
         this.props.sendEmail(data);
+        this.setState({ body: "", subject: "" })
     }
     render() {
         const { rating } = this.state;
@@ -82,18 +83,18 @@ class ContactUs extends React.Component {
                                                         <div className=" col-md-3" style={{ textAlign: "right" }}>To:</div>
                                                         <div className=" col-md-6">
                                                             <select className="form-control" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}>
-                                                            
-                                                        {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
-                                                    
-                                                          return (   
-                                                            
-                                                                <option>{job.hiringManager}</option>
-                                                                 
-                                                          )
-                                                            
-                                                            
-                                                          })}
-                                                                
+
+                                                                {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
+
+                                                                    return (
+
+                                                                        <option>{job.hiringManager}</option>
+
+                                                                    )
+
+
+                                                                })}
+
                                                             </select>
                                                         </div>
                                                     </div>
@@ -140,11 +141,11 @@ class ContactUs extends React.Component {
 
 function mapStateToProps(state) {
     const { contactUs, contactUsError } = state.contactUsReducer;
-	const { docUpload, jobs, jobsError, docUploadError } = state.jobsAppliedReducer
+    const { docUpload, jobs, jobsError, docUploadError } = state.jobsAppliedReducer
     return {
         contactUs,
         contactUsError,
-		jobs
+        jobs
     };
 }
 
