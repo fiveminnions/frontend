@@ -8,7 +8,7 @@ export const contactUsActions = {
 
 const responseFailure = {
     type: "Error",
-    Message: "Please Contact Administrator."
+    Message: "Please Contact HR at HR@excelon.com."
 }
 function success(data) {
     return { type: contactUsConstants.CONTACT_US_SUCCESS, data };
