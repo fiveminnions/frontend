@@ -42,7 +42,9 @@ class ContactUs extends React.Component {
 
         const data = {
             toId: this.state.toId,
-            comment: this.state.comment
+            subject: this.state.subject,
+            cc:this.state.cc,
+            body:this.state.body
         }
         console.log("Data submitted", data)
         this.props.sendEmail(data);
