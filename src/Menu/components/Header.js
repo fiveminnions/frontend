@@ -24,18 +24,20 @@ export default class Header extends Component {
                                 <ul className="dropdown-menu">
                                     <li className="header">{user.username}</li>
                                     <li>
+                                    <Link to="/login">
                                         <ul className="menu">
                                             <li>
                                                 <a href="#">
-                                                    <div className="pull-left">
+                                                    <div className="pull-left" style={{fontSize:"23px"}}>
                                                         <MdExitToApp />
                                                     </div>
-                                                    <p>
-                                                <Link to="/login">Logout</Link>
+                                                    <p style={{fontSize:"20px"}}>
+                                                Logout
                                             </p>
                                                 </a>
                                             </li>
                                         </ul>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
