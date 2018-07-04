@@ -22,11 +22,11 @@ function docUploadError(error) {
 }
 
 function jobsAppliedFetchSuccess(data) {
-    return { type: jobsAppliedConstants.JOBS_APPLIED_DOC_UPLOAD_SUCCESS, data };
+    return { type: jobsAppliedConstants.JOBS_APPLIED_FETCH_SUCCESS, data };
 }
 
 function jobsAppliedFetchError(error) {
-    return { type: jobsAppliedConstants.JOBS_APPLIED_DOC_UPLOAD_FAILURE, error };
+    return { type: jobsAppliedConstants.JOBS_APPLIED_FETCH_FAILURE, error };
 }
 
 export function upLoadDocument(uploadObj) {
@@ -43,12 +43,42 @@ export function upLoadDocument(uploadObj) {
 
 export function fetchJobsApplied(userObj) {
     return (dispatch, getState) => {
-        axios.get('https://jsonplaceholder.typicode.com/posts/1')
-            .then(function (response) {
-                dispatch(jobsAppliedActions.jobsAppliedFetchSuccess(response));
-            })
-            .catch(function (error) {
-                dispatch(jobsAppliedActions.jobsAppliedFetchError(responseFailure));
-            });
+
+        axios({
+            url: 'http://localhost:3001/graphql',
+            method: 'post',
+            data: {
+              query: `
+              query getDetails{
+                details(email: "raj@gmail.com") {
+                  user_name
+                  email
+                  password
+                  first_name
+                  last_name
+                  jobInfo {
+                    jobId
+                    designation
+                    skill
+                    location
+                    progressDetails {
+                      roundType
+                      status
+                      feedback
+                      result
+                      date
+                      
+                    }
+                  }
+                }
+              }
+                `
+            }
+          }).then((response) => {
+            dispatch(jobsAppliedActions.jobsAppliedFetchSuccess(response.data));
+          }).catch(function (error) {
+            dispatch(jobsAppliedActions.jobsAppliedFetchError(responseFailure));
+        });
+                  
     }
 }

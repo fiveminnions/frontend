@@ -6,6 +6,7 @@ import "../assets/css/_all-skins.min.css";
 import "../assets/css/AdminLTE.css";
 import { upLoadDocument, fetchJobsApplied } from '../_actions/jobsapplied.actions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 const products = [];
 
@@ -33,8 +34,8 @@ class JobsApplied extends React.Component {
   }
 
   componentDidMount() {
-    const userObj = { name: "Test" }
-    this.props.fetchJobsApplied(userObj);
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.props.fetchJobsApplied(user);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,14 +51,7 @@ class JobsApplied extends React.Component {
   }
 
   render() {
-    console.log("Applied jobs", jobsAppliedObj)
-    const options = {
-      expandRowBgColor: 'rgb(242, 255, 163)',
-      expandAll: true
-    };
-
-
-
+    console.log("this.props.jobs", this.props.jobs)
     return (
       <div className="hold-transition skin-blue sidebar-mini">
         <Menu></Menu>
@@ -85,9 +79,9 @@ class JobsApplied extends React.Component {
                             <bootstrap.PanelGroup
                               accordion id="jobList"
                             >
-                              {jobsAppliedObj.jobs.map(function (job) {
+                              {this.props.jobs && this.props.jobs.data.details.jobInfo.map(function (job) {
                                 return (
-                                  <li key={job.jobID}>
+                                  <li key={job.jobId}>
                                     <div>
                                       <UXComp job={job}></UXComp>
                                     </div>
@@ -129,22 +123,24 @@ class UXComp extends React.Component {
   }
 
   handleSelect(activeKey) {
-    this.setState({ activeKey: this.props.jobID });
+    this.setState({ activeKey: this.props.jobId });
   }
   render() {
+
+    console.log('fgfdgghgfhgfhgfhgfhgfhgfh', this.props.job.progressDetails)
     return (
       <div>
 
-        <bootstrap.Panel eventKey={this.props.job.jobID}>
+        <bootstrap.Panel eventKey={this.props.job.jobId}>
           <bootstrap.Panel.Heading style={{ minHeight: "50px" }}>
             <bootstrap.Panel.Title toggle>
-              <div className="col-md-3">{this.props.job.jobID}</div>
-              <div className="col-md-3">{this.props.job.Designation}</div>
-              <div className="col-md-3">{this.props.job.SkillSet}</div>
-              <div className="col-md-3">{this.props.job.Location}</div>
+              <div className="col-md-3">{this.props.job.jobId}</div>
+              <div className="col-md-3">{this.props.job.designation}</div>
+              <div className="col-md-3">{this.props.job.skill}</div>
+              <div className="col-md-3">{this.props.job.location}</div>
             </bootstrap.Panel.Title>
           </bootstrap.Panel.Heading>
-          <bootstrap.Panel.Body collapsible><ShowTimeline /></bootstrap.Panel.Body>
+          <bootstrap.Panel.Body collapsible><ShowTimeline details={this.props.job.progressDetails} /></bootstrap.Panel.Body>
         </bootstrap.Panel>
       </div>
     )
