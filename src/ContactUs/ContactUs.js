@@ -14,7 +14,8 @@ class ContactUs extends React.Component {
             fromId: "",
             toId: '',
             subject: "",
-            body: ''
+            body: '',
+            SuccessMessage:""
         };
     }
 
@@ -54,6 +55,7 @@ class ContactUs extends React.Component {
         console.log("Data submitted", data)
         this.props.sendEmail(data);
         this.setState({ body: "", subject: "" })
+        this.setState({ SuccessMessage: 'Email sent successfully' }, () => window.setTimeout(() => this.setState({ SuccessMessage: null }), 5000))
     }
     render() {
         const { rating } = this.state;
@@ -66,9 +68,6 @@ class ContactUs extends React.Component {
                         {this.props.contactUsError ? <div class="alert alert-error" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button><h2>{this.props.contactUsError.type} </h2><h4>{this.props.contactUsError.Message} </h4></div> : ""}
-                        {this.props.contactUs ? <div class="alert alert-success" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button><h2>{this.props.contactUs.type} </h2><h4>{this.props.contactUs.Message} </h4></div> : ""}
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="box">
@@ -78,6 +77,7 @@ class ContactUs extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
+                                            {this.state.SuccessMessage && <div className='alert alert-success' style={{ width: '100%' }}>{this.state.SuccessMessage}</div>}
                                                 <div className="container well well-sm" style={{ padding: "5px", fontSize: "16px", lineHeight: "2em" }}>
                                                     <div className="col-md-12 row" style={{ padding: "5px" }}>
                                                         <div className=" col-md-3" style={{ textAlign: "right" }}>To:</div>
