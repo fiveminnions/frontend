@@ -45,7 +45,7 @@ export default class AboutUs extends React.Component {
  
  We honor the core values written in our credo.
   
- We stand for integrity, respect, performance excellence and accountability. This reaches beyond products and services, connecting our customers to a larger truth about what we do and why it matters. The Excello credo is a set of principles that describes our culture and our core values.
+ We stand for integrity, respect, performance excellence and accountability. This reaches beyond products and services, connecting our customers to a larger truth about what we do and why it matters.
                                                          </p>
                                                          </div>
                                                          <div className="col-md-4" style={{border: "1px solid #e8dbdb",borderRadius: "5px",boxShadow: "3px 2px 3px 1px"}}>
