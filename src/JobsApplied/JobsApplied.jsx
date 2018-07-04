@@ -59,57 +59,59 @@ class JobsApplied extends React.Component {
           <section className="content-header">
             <div className="row">
               <div className="col-md-12">
-                <div className="box">
-                  <div className="box-header with-border">
-                    <h3 className="box-title">Jobs Applied</h3>
-                  </div>
-                  <div className="box-body">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div style={{ marginLeft: "1%" }}>
-                          <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "#222d32", color: "white", borderRadius: "3px", marginBottom: "11px" }}>
-                            <h4>
-                              <div className="col-md-3">JobId</div>
-                              <div className="col-md-3">Designation</div>
-                              <div className="col-md-3">Skills</div>
-                              <div className="col-md-3">Location</div>
-                            </h4>
+                {this.props.jobsError ? <div><h2>{this.props.jobsError.type} </h2><h4>{this.props.jobsError.Message} </h4></div> :
+                  <div className="box">
+                    <div className="box-header with-border">
+                      <h3 className="box-title">Jobs Applied</h3>
+                    </div>
+                    <div className="box-body">
+                      <div className="row">
+                        <div className="col-md-12">
+
+                          <div style={{ marginLeft: "1%" }}>
+                            <div className="col-md-12 row" style={{ height: "50px", border: "1px solid #ccc", background: "#222d32", color: "white", borderRadius: "3px", marginBottom: "11px" }}>
+                              <h4>
+                                <div className="col-md-3">JobId</div>
+                                <div className="col-md-3">Designation</div>
+                                <div className="col-md-3">Skills</div>
+                                <div className="col-md-3">Location</div>
+                              </h4>
+                            </div>
+                            <ul className="row col-md-12" style={{ padding: 0, listStyle: "none" }}>
+                              <bootstrap.PanelGroup
+                                accordion id="jobList"
+                              >
+                                {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
+                                  return (
+                                    <li key={job.jobId}>
+                                      <div>
+                                        <UXComp job={job}></UXComp>
+                                      </div>
+                                    </li>
+                                  )
+                                })}
+                              </bootstrap.PanelGroup>
+                              {this.props.jobs && !this.props.jobs.data.details ? <div>No Jobs Applied </div> : ''}
+
+
+                            </ul>
                           </div>
-                          <ul className="row col-md-12" style={{ padding: 0, listStyle: "none" }}>
-                            <bootstrap.PanelGroup
-                              accordion id="jobList"
-                            >
-                              {this.props.jobs && this.props.jobs.data.details && this.props.jobs.data.details.jobInfo.map(function (job) {
-                                return (
-                                  <li key={job.jobId}>
-                                    <div>
-                                      <UXComp job={job}></UXComp>
-                                    </div>
-                                  </li>
-                                )
-                              })}
-                            </bootstrap.PanelGroup>
-                            {this.props.jobs && !this.props.jobs.data.details ? <div>No Jobs Applied </div> : '' }
-                                            
-                              
-                          </ul>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="box-footer">
-                    <div className="row">
-                      <div className="col-sm-3 col-xs-6">
-                        <div className="description-block border-right">
+                    <div className="box-footer">
+                      <div className="row">
+                        <div className="col-sm-3 col-xs-6">
+                          <div className="description-block border-right">
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </div>}
               </div>
             </div>
           </section>
-        </div>
+        </div>}
       </div>
     );
   }
@@ -151,10 +153,12 @@ class UXComp extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { docUpload, jobs } = state.jobsAppliedReducer;
+  const { docUpload, jobs, jobsError, docUploadError } = state.jobsAppliedReducer;
   return {
     docUpload,
-    jobs
+    jobs,
+    jobsError,
+    docUploadError
   };
 }
 

@@ -10,13 +10,13 @@ export function jobsAppliedReducer(state = initialState, action) {
                 jobs: action.data
             };
         case jobsAppliedConstants.JOBS_APPLIED_FETCH_FAILURE:
-            return { jobs: action.error };
+            return { jobsError: action.error };
         case jobsAppliedConstants.JOBS_APPLIED_DOC_UPLOAD_SUCCESS:
             return {
                 docUpload: action.data
             };
         case jobsAppliedConstants.JOBS_APPLIED_DOC_UPLOAD_FAILURE:
-            return { docUpload: action.error };
+            return { docUploadError: action.error };
         default:
             return state
     }
