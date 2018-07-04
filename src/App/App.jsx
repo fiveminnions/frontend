@@ -42,6 +42,12 @@ class App extends React.Component {
                                 <Route path="/feedback" component={FeedbackForm} />
                                 <Route path="/contactus" component={ContactUs} />
                                 <Route path="/aboutus" component={AboutUs} />
+                                <iframe
+                                    width="350"
+                                    height="430"
+                                    style={{ zIndex: "300", position: "fixed", bottom: 0, right: 0 }}
+                                    src="https://console.dialogflow.com/api-client/demo/embedded/46d73af7-21bf-4af4-bd2e-7d34fb5cb716">
+                                </iframe>
                             </div>
                         </Router>
                     </div>
