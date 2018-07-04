@@ -19,13 +19,28 @@ function error(error) {
 }
 
 export function submitFeedBack(feedBackObj) {
+    let user = JSON.parse(localStorage.getItem('user'));
     return (dispatch, getState) => {
-        axios.get('https://jsonplaceholder.typicode.com/posts/1')
-            .then(function (response) {
-                dispatch(feedBackActions.success(response));
-            })
-            .catch(function (error) {
-                dispatch(feedBackActions.success(responseFailure));
-            });
+        
+
+          axios({
+            url: 'http://localhost:3001/graphql',
+            method: 'post',
+            data: {
+              query: `
+              mutation{
+                createFeedbacks(email : "`+ user.email +`",question1 : `+feedBackObj.rating1+`,,question2 : `+feedBackObj.rating2+`,question3 : `+feedBackObj.rating3+`,question4 : `+feedBackObj.rating4+`,comment : "`+feedBackObj.comment+`"){
+                  email
+                }
+              }
+                `
+            }
+          }) .then(function (response) {
+            dispatch(feedBackActions.success(response));
+        })
+        .catch(function (error) {
+            dispatch(feedBackActions.success(responseFailure));
+        });  
+                   
     }
 }

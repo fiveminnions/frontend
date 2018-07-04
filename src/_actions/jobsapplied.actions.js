@@ -63,6 +63,8 @@ export function fetchJobsApplied(userObj) {
                     designation
                     skill
                     location
+                    hiringManager
+                    hiringHr
                     progressDetails {
                       roundType
                       status
