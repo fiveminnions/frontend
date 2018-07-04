@@ -42,7 +42,7 @@ class ContactUs extends React.Component {
         const data = {
             toId: this.state.toId,
             subject: this.state.subject,
-            body:this.state.body
+            body: this.state.body
         }
         console.log("Data submitted", data)
         this.props.sendEmail(data);
@@ -55,6 +55,12 @@ class ContactUs extends React.Component {
                 <Menu></Menu>
                 <div className="content-wrapper">
                     <section className="content-header">
+                        {this.props.contactUsError ? <div class="alert alert-error" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button><h2>{this.props.contactUsError.type} </h2><h4>{this.props.contactUsError.Message} </h4></div> : ""}
+                        {this.props.contactUs ? <div class="alert alert-success" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button><h2>{this.props.contactUs.type} </h2><h4>{this.props.contactUs.Message} </h4></div> : ""}
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="box">
@@ -64,31 +70,31 @@ class ContactUs extends React.Component {
                                     <div className="box-body">
                                         <div className="row">
                                             <div className="col-md-12">
-                                                <div className="container well well-sm"style={{ padding: "5px", fontSize:"16px",lineHeight:"2em"}}>
-                                                    <div className="col-md-12 row"style={{ padding: "5px"}}>
-                                                        <div className=" col-md-3" style={{textAlign:"right"}}>To:</div>
+                                                <div className="container well well-sm" style={{ padding: "5px", fontSize: "16px", lineHeight: "2em" }}>
+                                                    <div className="col-md-12 row" style={{ padding: "5px" }}>
+                                                        <div className=" col-md-3" style={{ textAlign: "right" }}>To:</div>
                                                         <div className=" col-md-6">
-                                                        <select className="form-control" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}>
-                                                            <option>support@excelon.com</option>
-                                                            <option>bbb@gmail.com</option>
-                                                            <option>ccc@gmail.com</option>
-                                                            <option>ddd@gmail.com</option>
-                                                            <option>eee@gmail.com</option>
-                                                            <option>fff@gmail.com</option>
-                                                        </select>
+                                                            <select className="form-control" value={this.state.toId} onChange={this.onHandleToChange.bind(this)}>
+                                                                <option>support@excelon.com</option>
+                                                                <option>bbb@gmail.com</option>
+                                                                <option>ccc@gmail.com</option>
+                                                                <option>ddd@gmail.com</option>
+                                                                <option>eee@gmail.com</option>
+                                                                <option>fff@gmail.com</option>
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <div className="col-md-12 row"style={{ padding: "5px"}}>
-                                                        <div className=" col-md-3" style={{textAlign:"right"}}>Subjec:t</div>
+
+                                                    <div className="col-md-12 row" style={{ padding: "5px" }}>
+                                                        <div className=" col-md-3" style={{ textAlign: "right" }}>Subjec:t</div>
                                                         <div className=" col-md-6">
                                                             <input type="text" className="form-control" value={this.state.subject} onChange={this.onHandleSubjectChange.bind(this)}></input>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-12 row" style={{ padding: "5px"}}>
-                                                        <div className=" col-md-3" style={{textAlign:"right"}}>Mail Content:</div>
+                                                    <div className="col-md-12 row" style={{ padding: "5px" }}>
+                                                        <div className=" col-md-3" style={{ textAlign: "right" }}>Mail Content:</div>
                                                         <div className="col-md-6"><textarea className="form-control" placeholder="Mail Content goes here" value={this.state.body} onChange={this.onHandleBodyChange.bind(this)}></textarea></div>
-                                                        
+
                                                     </div>
                                                     <div className="col-md-12" style={{ padding: "5px", float: "left" }}>
                                                         <button className="btn btn-primary col-md-2 pull-right" onClick={this.handleSubmit.bind(this)}>Send</button>
@@ -120,9 +126,10 @@ class ContactUs extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { contactUs } = state.contactUsReducer;
+    const { contactUs, contactUsError } = state.contactUsReducer;
     return {
-        contactUs
+        contactUs,
+        contactUsError
     };
 }
 

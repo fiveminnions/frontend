@@ -10,7 +10,7 @@ export function contactUsReducer(state = initialState, action) {
                 contactUs: action.data
             };
         case contactUsConstants.CONTACT_US_FAILURE:
-            return { contactUs: action.error };
+            return { contactUsError: action.error };
         default:
             return state
     }

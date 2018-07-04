@@ -59,7 +59,9 @@ class JobsApplied extends React.Component {
           <section className="content-header">
             <div className="row">
               <div className="col-md-12">
-                {this.props.jobsError ? <div class="alert alert-error" role="alert"><h2>{this.props.jobsError.type} </h2><h4>{this.props.jobsError.Message} </h4></div> :
+                {this.props.jobsError ? <div class="alert alert-error" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button><h2>{this.props.jobsError.type} </h2><h4>{this.props.jobsError.Message} </h4></div> :
                   <div className="box">
                     <div className="box-header with-border">
                       <h3 className="box-title">Jobs Applied</h3>
